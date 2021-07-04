@@ -18,10 +18,9 @@ function Canvas ({setChord, chord}) {
     color:    "rgb(255,255,255)",
     wavelength: null
     });
-    console.log(selectedColor);
     // state for color slider
     const [spectrumValue, setSpectrumValue] = useState({
-        nanometers: 380
+        nanometers: selectedColor.wavelength
     });
 
     const handleSliderOutput = (event) => {
@@ -42,6 +41,7 @@ function Canvas ({setChord, chord}) {
             color: color,
             wavelength: wavelength,
         })
+        setSpectrumValue(wavelength);
 
     }
 
@@ -82,6 +82,7 @@ function Canvas ({setChord, chord}) {
                 handleSliderOutput={handleSliderOutput}
                 spectrumValue={spectrumValue}
                 handleSelect={handleSelect}
+                selectedColor={selectedColor}
                 />
                 </Route>
         
@@ -91,8 +92,7 @@ function Canvas ({setChord, chord}) {
           
             <Voices
             setChord={setChord}
-            wavelength={selectedColor.wavelength} 
-            color={selectedColor.color}/>
+            selectedColor={selectedColor}/>
         </div>
     )
 }

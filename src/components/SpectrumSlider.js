@@ -1,7 +1,7 @@
 import { black } from "color-name";
 import { nmToRgb } from "../conversions/nmToRgb";
 
-function SpectrumSlider ({handleSliderOutput, spectrumValue, handleSelect}) {
+function SpectrumSlider ({handleSliderOutput, spectrumValue, selectedColor}) {
 
     const spectrumValueParsed = parseInt(spectrumValue.nanometers);
 
@@ -19,7 +19,7 @@ function SpectrumSlider ({handleSliderOutput, spectrumValue, handleSelect}) {
                 width: "75%",
                 border: "1px solid black",
                 margin: "auto",
-                backgroundColor: spectrumRgb 
+                backgroundColor: selectedColor.color
 
             }} 
             className="spectrumBox" />
@@ -28,7 +28,7 @@ function SpectrumSlider ({handleSliderOutput, spectrumValue, handleSelect}) {
             name="nanometers" 
             min="380" max="780"
             onChange={handleSliderOutput}
-            // onChange={() => handleSelect(spectrumRgb, spectrumValueParsed)}
+            value={selectedColor.wavelength}
             >
 
             </input>

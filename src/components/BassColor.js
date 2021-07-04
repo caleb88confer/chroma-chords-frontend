@@ -1,8 +1,8 @@
 import {useState} from "react";
 
-const BassColor = ({color, wavelength, setChord}) => {
+const BassColor = ({selectedColor, setChord}) => {
     const [backgroundColor, setBackgroundColor] = useState("rgb(255, 255, 255)");
-    const [wl, setWl] =
+    const [wavelength, setWavelength] =
     useState(null)
 
 
@@ -18,8 +18,26 @@ const BassColor = ({color, wavelength, setChord}) => {
             margin: 10
         }} 
         onClick={() => 
-            {setBackgroundColor(color)
-            setWl(wavelength)}
+            {setBackgroundColor(selectedColor.color)
+            setWavelength(selectedColor.wavelength)
+            setChord(function (prevState) {
+                return {
+                    ...prevState,
+                    tones: {
+                        ...prevState.tones,
+                        bass: selectedColor.wavelength
+                    },
+                    colors: {
+                        ...prevState.colors,
+                        bass: selectedColor.color
+                    }
+
+
+                    
+                    
+                };
+            });
+        }
         }
         
         />

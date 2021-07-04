@@ -1,8 +1,8 @@
 import {useState} from "react";
 
-const AltoColor = ({color, wavelength, setChord}) => {
+const AltoColor = ({selectedColor, setChord}) => {
     const [backgroundColor, setBackgroundColor] = useState("rgb(255, 255, 255)");
-    const [wl, setWl] =
+    const [wavelength, setWavelength] =
     useState(null)
     return (
         <div>
@@ -16,8 +16,26 @@ const AltoColor = ({color, wavelength, setChord}) => {
             margin: 10
         }} 
         onClick={() => 
-            {setBackgroundColor(color)
-            setWl(wavelength)}
+            {setBackgroundColor(selectedColor.color)
+            setWavelength(selectedColor.wavelength)
+            setChord(function (prevState) {
+                return {
+                    ...prevState,
+                    tones: {
+                        ...prevState.tones,
+                        alto: selectedColor.wavelength
+                    },
+                    colors: {
+                        ...prevState.colors,
+                        alto: selectedColor.color
+                    }
+
+
+                    
+                    
+                };
+            });
+        }
         }
         
         />

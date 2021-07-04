@@ -3,7 +3,7 @@ import BassColor from "./BassColor";
 import TenorColor from "./TenorColor";
 import SopranoColor from "./SopranoColor";
 
-function Voices ({color, wavelength, setChord}) {
+function Voices ({selectedColor, setChord}) {
     return (
         <div>
 <h1>Voices</h1>
@@ -16,23 +16,19 @@ function Voices ({color, wavelength, setChord}) {
         >
             <BassColor
             setChord={setChord}
-            wavelength={wavelength}
-            color={color}
+            selectedColor={selectedColor}
             />
             <TenorColor
             setChord={setChord} 
-            wavelength={wavelength}
-            color={color}
+            selectedColor={selectedColor}
             />
             <AltoColor 
             setChord={setChord}
-            wavelength={wavelength}
-            color={color}
+            selectedColor={selectedColor}
             />
             <SopranoColor
             setChord={setChord} 
-            wavelength={wavelength}
-            color={color}
+            selectedColor={selectedColor}
             />
   
         </section>
