@@ -1,6 +1,9 @@
-import Square from "./Square";
+import AltoColor from "./AltoColor";
+import BassColor from "./BassColor";
+import TenorColor from "./TenorColor";
+import SopranoColor from "./SopranoColor";
 
-function Voices ({color}) {
+function Voices ({color, wavelength, setChord}) {
     return (
         <div>
 <h1>Voices</h1>
@@ -11,9 +14,26 @@ function Voices ({color}) {
                 margin: 10
             }}
         >
-            <Square color={color}/>
-            <Square color={color}/>
-            <Square color={color}/>
+            <BassColor
+            setChord={setChord}
+            wavelength={wavelength}
+            color={color}
+            />
+            <TenorColor
+            setChord={setChord} 
+            wavelength={wavelength}
+            color={color}
+            />
+            <AltoColor 
+            setChord={setChord}
+            wavelength={wavelength}
+            color={color}
+            />
+            <SopranoColor
+            setChord={setChord} 
+            wavelength={wavelength}
+            color={color}
+            />
   
         </section>
 

@@ -1,4 +1,24 @@
-function ColorPalette ({handleSelect}) {
+
+
+function ColorPalette ({handleSelect, ChromaticScale}) {
+    const notes = ChromaticScale.map((ele, idx) => {
+        return (
+            <div 
+                style={{
+                backgroundColor: ele.color,
+                height: 35,
+                width: 35,
+                margin: 5
+                
+                }}
+                onClick={() => handleSelect(ele.color, ele.wavelength)}
+                key={idx}
+            />
+
+        )
+
+        
+    })
     return (
         <div>
                     <h1>Color Palette</h1>
@@ -6,30 +26,7 @@ function ColorPalette ({handleSelect}) {
             display: "flex",
             justifyContent: "center",
         }}>
-            <div 
-                style={{
-                backgroundColor: "rgb(255, 0, 0)",
-                height: 100,
-                width: 100
-                }}
-                onClick={() => handleSelect("rgb(255, 0, 0)")}
-            />
-            <div 
-                style={{
-                backgroundColor: "rgb(0, 255, 0)",
-                height: 100,
-                width: 100
-                }}
-                onClick={() => handleSelect("rgb(0, 255, 0)")}
-            />
-            <div 
-                style={{
-                backgroundColor: "rgb(0, 0, 255)",
-                height: 100,
-                width: 100
-                }}
-                onClick={() => handleSelect("rgb(0, 0, 255)")}
-            />
+                {notes}
         </section>
         </div>
 
