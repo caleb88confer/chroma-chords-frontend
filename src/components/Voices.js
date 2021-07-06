@@ -16,7 +16,10 @@ function Voices ({selectedColor, setChord, chord}) {
     const tenorHz = LightHzToTenor(wavelengthToHz(chord.tones.tenor));
     const altoHz = LightHzToAlto(wavelengthToHz(chord.tones.alto));
     const sopranoHz = LightHzToSoprano(wavelengthToHz(chord.tones.soprano));
+  
 
+// play button ==================================
+const play = () => {
 // innitialize audio context======================================
     const ac = new AudioContext();
     const buffer = ac.createBuffer(
@@ -28,9 +31,6 @@ function Voices ({selectedColor, setChord, chord}) {
     const masterGain = ac.createGain()
     masterGain.gain.value = 0.4;
     masterGain.connect(ac.destination);
-
-// play button ==================================
-const play = () => {
 // set Bass oscilator=============================================
 const bass = () => {
     console.log("bass", bassHz);
@@ -39,6 +39,7 @@ const bass = () => {
     bassGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
 
     const bassOsc = ac.createOscillator();
+    bassOsc.type = "triangle";
     bassOsc.frequency.setValueAtTime(bassHz, 0);
     bassOsc.connect(bassGain);
     bassGain.connect(masterGain);
@@ -52,6 +53,7 @@ const tenor = () => {
     tenorGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
 
     const tenorOsc = ac.createOscillator();
+    tenorOsc.type = "triangle";
     tenorOsc.frequency.setValueAtTime(tenorHz, 0);
     tenorOsc.connect(tenorGain);
     tenorGain.connect(masterGain);
@@ -103,6 +105,7 @@ soprano();
 <button onClick={play}>
     play
 </button>
+
 <section
             style={{
                 display: "flex",
@@ -113,18 +116,22 @@ soprano();
             <BassColor
             setChord={setChord}
             selectedColor={selectedColor}
+            chord={chord}
             />
             <TenorColor
             setChord={setChord} 
             selectedColor={selectedColor}
+            chord={chord}
             />
             <AltoColor 
             setChord={setChord}
             selectedColor={selectedColor}
+            chord={chord}
             />
             <SopranoColor
             setChord={setChord} 
             selectedColor={selectedColor}
+            chord={chord}
             />
   
         </section>

@@ -17,7 +17,7 @@ function Canvas ({setChord, chord}) {
     // set selected color state
     const [selectedColor, setSelectedColor] = useState({
     color:    "rgb(255,255,255)",
-    wavelength: ''
+    wavelength: 380
     });
     // state for color slider
     const [spectrumValue, setSpectrumValue] = useState({
@@ -26,7 +26,7 @@ function Canvas ({setChord, chord}) {
 
 
     const handleSliderOutput = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         setSpectrumValue({[event.target.name]: event.target.value });
         const spectrumValueParsed = parseInt(spectrumValue.nanometers);
         const spectrumRgb = nmToRgb(spectrumValueParsed);
@@ -37,13 +37,14 @@ function Canvas ({setChord, chord}) {
     }
 
 
-    // for prevstate look up the codesandbox react forms
+   
     function handleSelect(color, wavelength) {
         setSelectedColor({
             color: color,
             wavelength: wavelength,
         })
-        setSpectrumValue(wavelength);
+        setSpectrumValue({
+            nanometers: wavelength});
 
     }
 

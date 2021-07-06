@@ -1,9 +1,7 @@
 import {useState} from "react";
 
-const BassColor = ({selectedColor, setChord}) => {
-    const [backgroundColor, setBackgroundColor] = useState("rgb(255, 255, 255)");
-    const [wavelength, setWavelength] =
-    useState(null)
+const BassColor = ({selectedColor, setChord, chord}) => {
+
 
 
     return (
@@ -12,14 +10,13 @@ const BassColor = ({selectedColor, setChord}) => {
         <div
         style={{
             border: "3px solid black",
-            backgroundColor: backgroundColor,
+            backgroundColor: chord.colors.bass,
             height: 100,
             width: 100,
             margin: 10
         }} 
         onClick={() => 
-            {setBackgroundColor(selectedColor.color)
-            setWavelength(selectedColor.wavelength)
+            {
             setChord(function (prevState) {
                 return {
                     ...prevState,

@@ -1,23 +1,20 @@
 import {useState} from "react";
 
-const TenorColor = ({selectedColor, setChord}) => {
-    const [backgroundColor, setBackgroundColor] = useState("rgb(255, 255, 255)");
-    const [wavelength, setWavelength] =
-    useState(null)
+const TenorColor = ({selectedColor, setChord, chord}) => {
+
     return (
         <div>
             <h3>Tenor</h3>
         <div
         style={{
             border: "3px solid black",
-            backgroundColor: backgroundColor,
+            backgroundColor: chord.colors.tenor,
             height: 100,
             width: 100,
             margin: 10
         }} 
         onClick={() => 
-            {setBackgroundColor(selectedColor.color)
-            setWavelength(selectedColor.wavelength)
+            {
             setChord(function (prevState) {
                 return {
                     ...prevState,

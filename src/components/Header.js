@@ -1,6 +1,14 @@
 function Header (props) {
     return (
-        <h1>Chroma Chords</h1>
+        <div className="header"
+        style = {{
+            border: "1px solid red",
+            
+        }}
+        >
+            <h1>Chroma Chords</h1>
+
+        </div>
     )
 }
 

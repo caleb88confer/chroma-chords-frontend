@@ -3,12 +3,6 @@ import { nmToRgb } from "../conversions/nmToRgb";
 
 function SpectrumSlider ({handleSliderOutput, spectrumValue, selectedColor}) {
 
-    const spectrumValueParsed = parseInt(spectrumValue.nanometers);
-
-    const spectrumRgb = nmToRgb(spectrumValueParsed);
-
-// state======
-// ==========
 
 
     return (
@@ -27,14 +21,20 @@ function SpectrumSlider ({handleSliderOutput, spectrumValue, selectedColor}) {
             type="range" 
             name="nanometers" 
             min="380" max="780"
+            value="380"
             onChange={handleSliderOutput}
             value={selectedColor.wavelength}
+            style = {{
+                direction: "rtl",
+                width: 450
+            }}
             >
-
             </input>
            <h3>{spectrumValue.nanometers}</h3>
         </div>
     )
+   
 }
+
 
 export default SpectrumSlider;

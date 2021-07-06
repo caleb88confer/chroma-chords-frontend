@@ -14,10 +14,10 @@ function Main (props) {
         author: "",
         title: "",
         tones: {
-            bass: undefined,
-            tenor: undefined,
-            alto: undefined,
-            soprano: undefined
+            bass: 380,
+            tenor: 380,
+            alto: 380,
+            soprano: 380
 
         },
         colors: {
@@ -55,9 +55,7 @@ function Main (props) {
                      
                  )}
                  />
-                 <Route path="/audio">
-                    <Audio />
-                 </Route>
+
 
             </Switch>
         </main>
