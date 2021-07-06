@@ -1,6 +1,6 @@
 function Header (props) {
     return (
-        <h1>Header</h1>
+        <h1>Chroma Chords</h1>
     )
 }
 

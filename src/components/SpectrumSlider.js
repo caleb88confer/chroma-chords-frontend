@@ -1,4 +1,4 @@
-import { black } from "color-name";
+
 import { nmToRgb } from "../conversions/nmToRgb";
 
 function SpectrumSlider ({handleSliderOutput, spectrumValue, selectedColor}) {

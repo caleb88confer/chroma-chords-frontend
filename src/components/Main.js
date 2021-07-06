@@ -14,10 +14,10 @@ function Main (props) {
         author: "",
         title: "",
         tones: {
-            bass: null,
-            tenor: null,
-            alto: null,
-            soprano: null
+            bass: undefined,
+            tenor: undefined,
+            alto: undefined,
+            soprano: undefined
 
         },
         colors: {

@@ -14,14 +14,16 @@ import { nmToRgb } from "../conversions/nmToRgb";
 
 
 function Canvas ({setChord, chord}) {
+    // set selected color state
     const [selectedColor, setSelectedColor] = useState({
     color:    "rgb(255,255,255)",
-    wavelength: null
+    wavelength: ''
     });
     // state for color slider
     const [spectrumValue, setSpectrumValue] = useState({
         nanometers: selectedColor.wavelength
     });
+
 
     const handleSliderOutput = (event) => {
         event.preventDefault();
@@ -73,7 +75,6 @@ function Canvas ({setChord, chord}) {
                     margin: 10,
                     backgroundColor: selectedColor.color
                 }} 
-                wavelength={null}
                 />
                 </Route>
 
@@ -81,7 +82,6 @@ function Canvas ({setChord, chord}) {
                 <SpectrumSlider 
                 handleSliderOutput={handleSliderOutput}
                 spectrumValue={spectrumValue}
-                handleSelect={handleSelect}
                 selectedColor={selectedColor}
                 />
                 </Route>
@@ -91,6 +91,7 @@ function Canvas ({setChord, chord}) {
 
           
             <Voices
+            chord={chord}
             setChord={setChord}
             selectedColor={selectedColor}/>
         </div>
