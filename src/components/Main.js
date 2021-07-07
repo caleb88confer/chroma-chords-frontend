@@ -5,7 +5,7 @@ import Welcome from '../pages/Welcome';
 import Canvas from "../pages/Canvas";
 import Gallery from "../pages/Gallery";
 import RecForm from "../pages/RecForm";
-import Audio from "../components/Audio";
+
 
 
 function Main (props) {
@@ -42,11 +42,20 @@ function Main (props) {
                   />  
                 </Route>
                 <Route path="/gallery">
-                    <Gallery />
+                    <Gallery 
+                    chord={chord}
+                    />
                 </Route>
-                <Route path="/recform">
-                    <RecForm chord={chord}/>
-                </Route>
+                <Route 
+                path="/recform" render={(rp) => (
+                    <RecForm 
+                    chord={chord}
+                    setChord={setChord}
+                    {...rp}
+                    />
+                )} 
+                 />
+                    
                 <Route 
                  path="/canvas/:id" render={(rp) => (
                      <Canvas 
