@@ -50,30 +50,30 @@ function Canvas ({setChord, chord}) {
 
     return (
    
-        <div>
+        <div className="instrumentPanel">
+            <div className="selectorSection"> 
+            
+            <div className="paletteSwitcher">
            <Link to="/canvas/spectrum">
-               <button>Full Spectrum</button>
+               <button className="btn cyan darken-2 waves-effect waves-light">Spectrum</button>
            </Link>
            <Link to="/canvas/palette">
-               <button>Chromatic</button>
+               <button className="btn amber darken-4 waves-effect waves-light">Chromatic</button>
            </Link>
+
+            </div>
             <Switch>
-            <section style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-            }} >
+            <section className="colorSelector" >
                 <Route path="/canvas/palette">
                 <ColorPalette
                 ChromaticScale={ChromaticScale} 
                 handleSelect={handleSelect}/>
-
-                <h2>Selected Color</h2>
-                <div style={{
+                <div 
+                style={{
                     border: "3px solid black",
-                    height: 35,
-                    width: 35,
-                    margin: 10,
+                    height: "2.7rem",
+                    width: "2.7rem",
+                    margin: "1rem",
                     backgroundColor: selectedColor.color
                 }} 
                 />
@@ -89,6 +89,8 @@ function Canvas ({setChord, chord}) {
         
             </section>
             </Switch>
+            <p className="selectorSectionTitle">Color Selector</p>
+            </div>
 
           
             <Voices

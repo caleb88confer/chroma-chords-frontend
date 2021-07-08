@@ -1,25 +1,18 @@
 import { Link } from "react-router-dom";
-
+import "materialize-css/dist/css/materialize.min.css"
 
 function Header (props) {
     return (
-        <div className="header"
-        style = {{
-            border: "1px solid red",
-            
-        }}
+        <div className="header1"
         >
-            <h1>Chroma Chords</h1>
-            <nav>
-                <Link to="/recform">
-                <h3>save</h3>
+            <div 
+            className="tag"
+            >
+            <h1 className="title"
+            >Chroma Chords</h1>
 
-                </Link>
-                <Link to="/gallery">
-                    <h3>gallery</h3>
-                </Link>
-
-            </nav>
+            </div>
+           
 
         </div>
     )

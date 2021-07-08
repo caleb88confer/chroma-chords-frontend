@@ -2,16 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -23,16 +14,124 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #3e3e3e;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header1 {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.6);
+    height: 125px;
+    background: url('https://cdn.pixabay.com/photo/2016/12/18/09/05/trees-1915244_960_720.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
+
+.tag {
+  display: flex;
+  background-color: #3e3e3e;
+  border-radius: 5px;
+  width: 15rem;
+  max-height: 12rem;
+  margin: 5px;
+
+}
+
+.footer {
+  display: flex;
+    justify-content: center;
+    box-shadow: 0px -5px 3px 0px rgba(0,0,0,0.6);
+    height: 100px;
+    background: url('https://cdn.pixabay.com/photo/2016/12/18/09/05/trees-1915244_960_720.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: auto;
+
+}
+
+
+.title {
+  background: url('https://cdn.pixabay.com/photo/2018/02/27/15/40/background-3185765_1280.jpg');
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        color: white;
+        -webkit-background-clip: text;
+        -moz-background-clip:text;
+        background-clip:text;
+        background-size: cover;
+        font-size: 2.8rem;
+        text-transform: uppercase;
+        margin: 0;
+        align-self: center;
+       
+
+}
+.instrumentPanel {
+  /* border: 1px solid lime; */
+  min-height: calc(100vh - 16.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.selectorSection {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.selectorSectionTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  align-self: center;
+ 
+}
+
+.paletteSwitcher {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid violet; */
+  margin: 5px;
+  padding-top: 3rem;
+}
+
+button {
+  margin: .3rem;
+}
+
+.colorSelector {
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  border-radius: 10px;
+  height: 11rem;
+  width: 30rem;
+}
+
+.chromaticPalette {
+  /* border: 1px solid lime; */
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 21rem;
+}
+
+.chromaticNotes {
+  transition: all .3s ease-in-out;
+}
+
+.chromaticNotes:hover {
+    transform: rotate(90deg);
+}
+

@@ -10,10 +10,12 @@ function SpectrumSlider ({handleSliderOutput, spectrumValue, selectedColor}) {
             <div
             style={{
                 height: 100,
-                width: "75%",
-                border: "1px solid black",
-                margin: "auto",
-                backgroundColor: selectedColor.color
+                width: "100%",
+                border: "3px solid black",
+                margin: 0,
+                backgroundColor: selectedColor.color,
+                borderRadius: 7,
+                
 
             }} 
             className="spectrumBox" />
@@ -26,11 +28,10 @@ function SpectrumSlider ({handleSliderOutput, spectrumValue, selectedColor}) {
             value={selectedColor.wavelength}
             style = {{
                 direction: "rtl",
-                width: 450
+                width: "19.5rem"
             }}
             >
             </input>
-           <h3>{spectrumValue.nanometers}</h3>
         </div>
     )
    

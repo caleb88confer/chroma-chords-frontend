@@ -3,11 +3,11 @@
 function ColorPalette ({handleSelect, ChromaticScale}) {
     const notes = ChromaticScale.map((ele, idx) => {
         return (
-            <div 
+            <div className="chromaticNotes"
                 style={{
                 backgroundColor: ele.color,
-                height: 35,
-                width: 35,
+                height: "2.7rem",
+                width: "2.7rem",
                 margin: 5
                 
                 }}
@@ -20,14 +20,10 @@ function ColorPalette ({handleSelect, ChromaticScale}) {
         
     })
     return (
-        <div>
-                    <h1>Color Palette</h1>
-        <section style={{
-            display: "flex",
-            justifyContent: "center",
-        }}>
+        <div 
+        className="chromaticPalette"
+        >
                 {notes}
-        </section>
         </div>
 
     )
