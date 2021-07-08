@@ -15,12 +15,12 @@ import {LightHzToSoprano} from "../conversions/LightHzToSoprano";
 
 function Voices ({selectedColor, setChord, chord}) {
 const [fx, setFx] = useState({
-    reverb: false,
+    delay: false,
     thicken: false
 })
 
-const handleReverbTrigger = (event) => {
-    if(event.target.value !== fx.reverb) {
+const handleDelayTrigger = (event) => {
+    if(event.target.value !== fx.delay) {
     setFx(function (prevState) {
         console.log(event.target.value);
         return {
@@ -30,7 +30,7 @@ const handleReverbTrigger = (event) => {
     } else {
         setFx(function (prevState) {
             return {
-                reverb: false,
+                delay: false,
                 thicken: prevState.thicken
             }
         })
@@ -76,7 +76,18 @@ const play = () => {
 // set master volume control======================================
     const masterGain = ac.createGain()
     masterGain.gain.value = 0.4;
-    masterGain.connect(ac.destination);
+    if (fx.delay === "on") {
+        let delay = ac.createDelay();
+        const feedback = ac.createGain();
+        feedback.gain.value = 0.6;
+        delay.connect(feedback);
+        feedback.connect(delay);
+        delay.delayTime.value = 0.35;
+        masterGain.connect(delay);
+        delay.connect(ac.destination); 
+    }
+     masterGain.connect(ac.destination);
+   
 // set Bass oscilator=============================================
 const bass = () => {
     if (bassHz > 42.632564145606004) {
@@ -141,6 +152,8 @@ const soprano = () => {
     sopranoOsc.start();
     sopranoOsc.stop(ac.currentTime + 3.5);
 }
+
+
 }
 bass();
 tenor();
@@ -191,12 +204,12 @@ soprano();
 
 
             <div class="switch">
-                <p className="fxLabel">Reverb</p>
+                <p className="fxLabel">Delay</p>
     <label>
-      butts
-      <input onClick={handleReverbTrigger} name="reverb" type="checkbox"/>
+      Off
+      <input onClick={handleDelayTrigger} name="delay" type="checkbox"/>
       <span class="lever"></span>
-      putts
+      On
     </label>
   </div>
   <div class="switch">
