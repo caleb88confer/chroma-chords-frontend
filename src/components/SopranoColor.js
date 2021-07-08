@@ -3,15 +3,34 @@ import {useState} from "react";
 const SopranoColor = ({selectedColor, setChord, chord}) => {
 
     return (
-        <div>
-            <h3>Soprano</h3>
-        <div
+        <div className="voiceCollect">
+            <button 
+            className="clearbtn"
+            onClick={() => 
+                {
+                setChord(function (prevState) {
+                    return {
+                        ...prevState,
+                        tones: {
+                            ...prevState.tones,
+                            soprano: 800
+                        },
+                        colors: {
+                            ...prevState.colors,
+                            soprano: "rgb(255,255,255)"
+                        }
+    
+    
+                        
+                        
+                    };
+                });
+            }
+            }
+            >X</button>
+        <div className="voicePad"
         style={{
-            border: "3px solid black",
             backgroundColor: chord.colors.soprano,
-            height: 100,
-            width: 100,
-            margin: 10
         }} 
         onClick={() => 
             {
@@ -36,6 +55,7 @@ const SopranoColor = ({selectedColor, setChord, chord}) => {
         }
         
         />
+        <p className="voiceLabel">Soprano</p>
         </div>
     )
 }

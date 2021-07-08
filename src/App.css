@@ -21,11 +21,24 @@ body {
   background-color: #3e3e3e;
 }
 
+main {
+  /* border: 1px solid red; */
+  min-height: 86vh;
+
+  margin-bottom: -100px;
+}
+
+main::after {
+  content: '';
+  display: block;
+}
+
 .header1 {
     display: flex;
     justify-content: center;
     box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.6);
-    height: 125px;
+    /* height: 125px; */
+    width: 100%;
     background: url('https://cdn.pixabay.com/photo/2016/12/18/09/05/trees-1915244_960_720.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,10 +60,11 @@ body {
     justify-content: center;
     box-shadow: 0px -5px 3px 0px rgba(0,0,0,0.6);
     height: 100px;
+    width: 100%;
     background: url('https://cdn.pixabay.com/photo/2016/12/18/09/05/trees-1915244_960_720.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: auto;
+    margin-top: 2.5rem;
 
 }
 
@@ -78,22 +92,17 @@ body {
   min-height: calc(100vh - 16.5rem);
   display: flex;
   flex-direction: column;
+
 }
 
 .selectorSection {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   margin: 2rem;
 }
 
-.selectorSectionTitle {
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  align-self: center;
- 
-}
+
 
 .paletteSwitcher {
   display: flex;
@@ -102,6 +111,7 @@ body {
   margin: 5px;
   padding-top: 3rem;
 }
+
 
 button {
   margin: .3rem;
@@ -115,7 +125,7 @@ button {
   margin: 15px;
   border-radius: 10px;
   height: 11rem;
-  width: 30rem;
+  width: 29rem;
 }
 
 .chromaticPalette {
@@ -123,15 +133,218 @@ button {
   display: flex;
   flex-direction: column-reverse;
   flex-wrap: wrap;
-  height: 100px;
+  height: 7rem;
   width: 21rem;
 }
 
 .chromaticNotes {
   transition: all .3s ease-in-out;
+  height: 2.7rem;
+  width: 2.7rem;
+  margin: 5px;
 }
 
 .chromaticNotes:hover {
     transform: rotate(90deg);
 }
 
+.selectedColor {
+  border: 3px solid black;
+  height: 2.7rem;
+  width: 2.7rem;
+  margin: 1rem;
+  transition: 500ms;
+}
+
+.spectrumBox {
+  height: 100px;
+  width: 25rem;
+  border: 4px inset rgb(188, 183, 183);
+  margin: 0;
+  border-radius: 7px;
+}
+
+.slider1 {
+  width: 25rem;
+}
+
+.selectorSectionTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  align-self: center;
+  
+ 
+}
+
+
+
+
+
+.voiceSection {
+  /* border: 2px solid red; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.voiceSetter {
+  border: 2px solid white;
+  border-radius: 7px;
+  width: 35rem;
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  
+}
+
+.voiceCollect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid violet; */
+}
+
+.voicePad {
+  height: 5rem;
+  width: 5rem;
+  margin: 1rem 1.5rem .3rem 1.5rem;
+  border: 3px outset rgb(208, 200, 184);
+  transition: 600ms;
+}
+
+.clearbtn {
+  border: none;
+  width: 3rem;
+  align-self: center;
+  color: rgb(223, 102, 102);
+  background-color: rgb(210, 208, 208);
+  font-weight: bold;
+  transition: 400ms;
+}
+
+.clearbtn:hover {
+  background-color: rgb(223, 102, 102);
+}
+
+.clearbtn:focus {
+  background-color: rgb(210, 208, 208);
+}
+
+
+.voiceLabel {
+  color: white;
+}
+
+.voiceSectionLabel {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.thirdSection {
+  border: 1px solid violet;
+  display: flex;
+  justify-content: center;
+}
+
+.fxSection {
+  border: 1px solid lime;
+  height: 15rem;
+  width: 15rem;
+}
+
+.fxLabel {
+  color: white;
+}
+
+.transportSection {
+  height: 10rem;
+  width: 10rem;
+  border: 2px solid white;
+  border-radius: 7px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.transportLabel {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .chromaticPalette {
+    /* border: 1px solid lime; */
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    height: 13.8rem;
+    width: 20rem;
+    margin-left: .2rem;
+  }
+
+  .chromaticNotes {
+    transition: all .3s ease-in-out;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 5px;
+  }
+  
+  .colorSelector {
+    height: 15rem;
+    width: 15rem;
+  }
+  
+  .selectorSectionTitle {
+    display: none;
+   
+  }
+
+  .selectorbtn {
+    text-overflow: clip;
+  }
+
+  .spectrumBox {
+    margin-top: 10px;
+    height: 12rem;
+    width: 13rem;
+
+  }
+
+  .slider1 {
+    width: 10rem;
+  }
+
+  .voiceSetter {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    
+  }
+  
+
+  .voicePad {
+    height: 3.8rem;
+    width: 3.8rem;
+    margin: 1rem;
+  }
+
+  .clearbtn {
+    width: 2rem;
+  
+  }
+
+  .voiceSectionLabel {
+   display: none;
+  }
+
+
+
+
+
+
+}

@@ -5,15 +5,34 @@ const BassColor = ({selectedColor, setChord, chord}) => {
 
 
     return (
-        <div>
-            <h3>Bass</h3>
-        <div
+        <div className="voiceCollect">
+            <button 
+            className="clearbtn"
+            onClick={() => 
+                {
+                setChord(function (prevState) {
+                    return {
+                        ...prevState,
+                        tones: {
+                            ...prevState.tones,
+                            bass: 800
+                        },
+                        colors: {
+                            ...prevState.colors,
+                            bass: "rgb(255,255,255)"
+                        }
+    
+    
+                        
+                        
+                    };
+                });
+            }
+            }
+            >X</button>
+        <div className="voicePad"
         style={{
-            border: "3px solid black",
-            backgroundColor: chord.colors.bass,
-            height: 100,
-            width: 100,
-            margin: 10
+            backgroundColor: chord.colors.bass,    
         }} 
         onClick={() => 
             {
@@ -38,6 +57,7 @@ const BassColor = ({selectedColor, setChord, chord}) => {
         }
         
         />
+        <p className="voiceLabel">Bass</p>
         </div>
     )
 }

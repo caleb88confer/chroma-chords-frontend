@@ -55,10 +55,10 @@ function Canvas ({setChord, chord}) {
             
             <div className="paletteSwitcher">
            <Link to="/canvas/spectrum">
-               <button className="btn cyan darken-2 waves-effect waves-light">Spectrum</button>
+               <button className="waves-effect waves-red btn selectorbtn">S</button>
            </Link>
            <Link to="/canvas/palette">
-               <button className="btn amber darken-4 waves-effect waves-light">Chromatic</button>
+               <button className="waves-effect waves-red btn selectorbtn">C</button>
            </Link>
 
             </div>
@@ -68,12 +68,9 @@ function Canvas ({setChord, chord}) {
                 <ColorPalette
                 ChromaticScale={ChromaticScale} 
                 handleSelect={handleSelect}/>
-                <div 
+                <div className="selectedColor"
                 style={{
-                    border: "3px solid black",
-                    height: "2.7rem",
-                    width: "2.7rem",
-                    margin: "1rem",
+       
                     backgroundColor: selectedColor.color
                 }} 
                 />

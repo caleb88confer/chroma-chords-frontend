@@ -6,9 +6,6 @@ function ColorPalette ({handleSelect, ChromaticScale}) {
             <div className="chromaticNotes"
                 style={{
                 backgroundColor: ele.color,
-                height: "2.7rem",
-                width: "2.7rem",
-                margin: 5
                 
                 }}
                 onClick={() => handleSelect(ele.color, ele.wavelength)}

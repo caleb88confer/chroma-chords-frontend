@@ -4,15 +4,34 @@ const AltoColor = ({selectedColor, setChord, chord}) => {
     const [wavelength, setWavelength] =
     useState(null)
     return (
-        <div>
-            <h3>Alto</h3>
-        <div
+        <div className="voiceCollect">
+           <button 
+            className="clearbtn"
+            onClick={() => 
+                {
+                setChord(function (prevState) {
+                    return {
+                        ...prevState,
+                        tones: {
+                            ...prevState.tones,
+                            alto: 800
+                        },
+                        colors: {
+                            ...prevState.colors,
+                            alto: "rgb(255,255,255)"
+                        }
+    
+    
+                        
+                        
+                    };
+                });
+            }
+            }
+            >X</button>
+        <div className="voicePad"
         style={{
-            border: "3px solid black",
             backgroundColor: chord.colors.alto,
-            height: 100,
-            width: 100,
-            margin: 10
         }} 
         onClick={() => 
             {
@@ -37,6 +56,7 @@ const AltoColor = ({selectedColor, setChord, chord}) => {
         }
         
         />
+         <p className="voiceLabel">Alto</p>
         </div>
     )
 }
