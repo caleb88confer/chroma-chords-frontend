@@ -79,7 +79,7 @@ const play = () => {
     if (fx.delay === "on") {
         let delay = ac.createDelay();
         const feedback = ac.createGain();
-        feedback.gain.value = 0.6;
+        feedback.gain.value = 0.4;
         delay.connect(feedback);
         feedback.connect(delay);
         delay.delayTime.value = 0.35;
@@ -106,42 +106,108 @@ const bass = () => {
 }
 }
 const tenor = () => {
-    if (tenorHz > 85.26512829121201) {
-    console.log("tenor", tenorHz);
-    const tenorGain = ac.createGain();
-    tenorGain.gain.setValueAtTime(.7, 0);
-    tenorGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+    if(fx.thicken === "on") {
+        if (tenorHz > 85.26512829121201) {
+            console.log("tenor", tenorHz);
+            const tenorGain = ac.createGain();
+            tenorGain.gain.setValueAtTime(.5, 0);
+            tenorGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+        
+            const tenorOsc = ac.createOscillator();
+            tenorOsc.type = "triangle";
+            tenorOsc.frequency.setValueAtTime(tenorHz, 0);
+            tenorOsc.connect(tenorGain);
+            tenorGain.connect(masterGain);
+            tenorOsc.start();
+            tenorOsc.stop(ac.currentTime + 3.5);
 
-    const tenorOsc = ac.createOscillator();
-    tenorOsc.type = "triangle";
-    tenorOsc.frequency.setValueAtTime(tenorHz, 0);
-    tenorOsc.connect(tenorGain);
-    tenorGain.connect(masterGain);
-    tenorOsc.start();
-    tenorOsc.stop(ac.currentTime + 3.5);
+            const tenorOsc1 = ac.createOscillator();
+            tenorOsc1.type = "triangle";
+            tenorOsc1.frequency.setValueAtTime(tenorHz, 0);
+            tenorOsc1.detune.setValueAtTime(3, 0);
+            tenorOsc1.connect(tenorGain);
+            tenorGain.connect(masterGain);
+            tenorOsc1.start();
+            tenorOsc1.stop(ac.currentTime + 3.5);
+        }
+    } else {
+        if (tenorHz > 85.26512829121201) {
+            console.log("tenor", tenorHz);
+            const tenorGain = ac.createGain();
+            tenorGain.gain.setValueAtTime(.7, 0);
+            tenorGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+        
+            const tenorOsc = ac.createOscillator();
+            tenorOsc.type = "triangle";
+            tenorOsc.frequency.setValueAtTime(tenorHz, 0);
+            tenorOsc.connect(tenorGain);
+            tenorGain.connect(masterGain);
+            tenorOsc.start();
+            tenorOsc.stop(ac.currentTime + 3.5);
+        }  
+    }
+ 
 }
-}
+
+// set alto osc========================================================
 const alto = () => {
-    if (altoHz > 170.53025658242402) {
-    console.log("alto", altoHz);
-    const altoGain = ac.createGain();
-    altoGain.gain.setValueAtTime(.5, 0);
-    altoGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+    if (fx.thicken === "on"){
+        if (altoHz > 170.53025658242402) {
+            console.log("alto", altoHz);
+            const altoGain = ac.createGain();
+            altoGain.gain.setValueAtTime(.15, 0);
+            altoGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+        
+            const altoOsc = ac.createOscillator();
+            altoOsc.type = "triangle";
+            altoOsc.frequency.setValueAtTime(altoHz, 0);
+            altoOsc.connect(altoGain);
+            altoGain.connect(masterGain);
+            altoOsc.start();
+            altoOsc.stop(ac.currentTime + 3.5);
 
-    const altoOsc = ac.createOscillator();
-    altoOsc.type = "triangle";
-    altoOsc.frequency.setValueAtTime(altoHz, 0);
-    altoOsc.connect(altoGain);
-    altoGain.connect(masterGain);
-    altoOsc.start();
-    altoOsc.stop(ac.currentTime + 3.5);
+            const altoOsc1 = ac.createOscillator();
+            altoOsc1.type = "triangle";
+            altoOsc1.frequency.setValueAtTime(altoHz, 0);
+            altoOsc1.detune.setValueAtTime(3, 0)
+            altoOsc1.connect(altoGain);
+            altoGain.connect(masterGain);
+            altoOsc1.start();
+            altoOsc1.stop(ac.currentTime + 3.5);
+
+            const altoOsc2 = ac.createOscillator();
+            altoOsc2.type = "triangle";
+            altoOsc2.frequency.setValueAtTime(altoHz, 0);
+            altoOsc2.detune.setValueAtTime(-3, 0)
+            altoOsc2.connect(altoGain);
+            altoGain.connect(masterGain);
+            altoOsc2.start();
+            altoOsc2.stop(ac.currentTime + 3.5);
+        }
+    } else {
+        if (altoHz > 170.53025658242402) {
+            console.log("alto", altoHz);
+            const altoGain = ac.createGain();
+            altoGain.gain.setValueAtTime(.4, 0);
+            altoGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+        
+            const altoOsc = ac.createOscillator();
+            altoOsc.type = "triangle";
+            altoOsc.frequency.setValueAtTime(altoHz, 0);
+            altoOsc.connect(altoGain);
+            altoGain.connect(masterGain);
+            altoOsc.start();
+            altoOsc.stop(ac.currentTime + 3.5);
+        }
+    }
+
 }
-}
+// set soprano osc ===============================================================
 const soprano = () => {
+    if (fx.thicken === "on") {
     if (sopranoHz > 341.06051316484803) {
-    console.log("soprano", sopranoHz);
     const sopranoGain = ac.createGain();
-    sopranoGain.gain.setValueAtTime(0.25, 0);
+    sopranoGain.gain.setValueAtTime(0.13, 0);
     sopranoGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
 
     const sopranoOsc = ac.createOscillator();
@@ -151,6 +217,40 @@ const soprano = () => {
     sopranoGain.connect(masterGain);
     sopranoOsc.start();
     sopranoOsc.stop(ac.currentTime + 3.5);
+
+    const sopranoOsc1 = ac.createOscillator();
+    sopranoOsc1.type = "triangle";
+    sopranoOsc1.frequency.setValueAtTime(sopranoHz, 0);
+    sopranoOsc1.detune.setValueAtTime(3, 0)
+    sopranoOsc1.connect(sopranoGain);
+    sopranoGain.connect(masterGain);
+    sopranoOsc1.start();
+    sopranoOsc1.stop(ac.currentTime + 3.5);
+
+
+    const sopranoOsc2 = ac.createOscillator();
+    sopranoOsc2.type = "triangle";
+    sopranoOsc2.frequency.setValueAtTime(sopranoHz, 0);
+    sopranoOsc2.detune.setValueAtTime(-3, 0)
+    sopranoOsc2.connect(sopranoGain);
+    sopranoGain.connect(masterGain);
+    sopranoOsc2.start();
+    sopranoOsc2.stop(ac.currentTime + 3.5);
+}
+} else { 
+    if (sopranoHz > 341.06051316484803) {
+        const sopranoGain = ac.createGain();
+        sopranoGain.gain.setValueAtTime(0.25, 0);
+        sopranoGain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 3.5);
+    
+        const sopranoOsc = ac.createOscillator();
+        sopranoOsc.type = "triangle";
+        sopranoOsc.frequency.setValueAtTime(sopranoHz, 0);
+        sopranoOsc.connect(sopranoGain);
+        sopranoGain.connect(masterGain);
+        sopranoOsc.start();
+        sopranoOsc.stop(ac.currentTime + 3.5);
+    }
 }
 
 
@@ -221,8 +321,10 @@ soprano();
       On
     </label>
   </div>
+  
 
             </div>
+            <p className="transportLabel">Effects</p>
             <div className="transportSection">
             <button 
                 className="btn green"
