@@ -28,8 +28,8 @@ function Gallery ({setChord, history}) {
                     history.push(`/canvas/${chord._id}`)
                 }}
                 >
-                    <h1>{chord.title}</h1>
-                    <h2>{chord.author}</h2>
+                    <h1 className="galleryTitle">{chord.title}</h1>
+                    <h2 className="galleryAuthor">{chord.author}</h2>
                 </div>
         ));
     };
@@ -40,9 +40,13 @@ function Gallery ({setChord, history}) {
 
 
     return (
-        <div>
-            <h1>Gallery</h1>
+        <div className="container ">
+            <h1 className="aboutTitle">Gallery</h1>
+            <hr></hr>
+            <div className="galleryContainer">
             {chords ? loaded() : loading()}
+
+            </div>
 
 
         </div>

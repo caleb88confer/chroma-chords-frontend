@@ -1,6 +1,6 @@
 function About (props) {
     return (
-        <>
+        <div className="aboutBody">
         <h1 className="aboutTitle">About Chroma Chords</h1>
         <div className="container">
         <hr></hr>
@@ -32,7 +32,7 @@ function About (props) {
         </div>
         
 
-    </>
+    </div>
     )
 }
 

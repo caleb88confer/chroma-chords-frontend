@@ -31,12 +31,15 @@ function RecForm ({chord, setChord, history}) {
         
     }
     return (
-        <div>
-            <h1>RecForm</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="container">
+            <h1 className="aboutTitle">RecForm</h1>
+            <hr></hr>
+            <form className="recForm"
+            onSubmit={handleSubmit}>
                 <label>
                     <span>TITLE</span>
-                    <input 
+                    <input
+                        className="recForm"  
                         name="title"
                         value={chord.title}
                         onChange={handleChange}
@@ -44,13 +47,14 @@ function RecForm ({chord, setChord, history}) {
                 </label>
                 <label>
                     <span>AUTHOR</span>
-                    <input 
+                    <input
+                        className="recForm" 
                         name="author"
                         value={chord.author}
                         onChange={handleChange}
                         />
                 </label>
-                <button>Save</button>
+                <button className="btn">Save</button>
 
                 
             </form>
