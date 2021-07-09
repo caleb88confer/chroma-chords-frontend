@@ -297,6 +297,23 @@ button {
   font-size: 1.2rem;
   align-self: center;
 }
+/* ================================About Section================================== */
+ .aboutTitle {
+   color: white;
+   font-size: 3rem;
+ }
+
+ .aboutSubHeading {
+  color: white;
+  font-size: 2rem;
+ }
+
+ .aboutParagraph {
+   color: white;
+ }
+
+
+/* ============================media queries======================================= */
 
 @media only screen and (max-width: 600px) {
 
