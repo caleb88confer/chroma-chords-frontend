@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
 function Gallery ({setChord, history}) {
@@ -12,11 +12,15 @@ function Gallery ({setChord, history}) {
         setChords(data);
     };
 
-    getChords();
+    useEffect (() => {
+        getChords();
+
+    })
+
 
 
     const loaded = () => {
-        return chords.map((chord) => (
+        return chords.map((chord) => (     
                 <div className="galleryItem"
                 onClick={() => {
                     setChord({
@@ -31,6 +35,7 @@ function Gallery ({setChord, history}) {
                     <h1 className="galleryTitle">{chord.title}</h1>
                     <h2 className="galleryAuthor">{chord.author}</h2>
                 </div>
+                
         ));
     };
 
@@ -40,6 +45,7 @@ function Gallery ({setChord, history}) {
 
 
     return (
+        <div className="gallery-block">
         <div className="container ">
             <h1 className="aboutTitle">Gallery</h1>
             <hr></hr>
@@ -49,6 +55,7 @@ function Gallery ({setChord, history}) {
             </div>
 
 
+        </div>
         </div>
     );
 }

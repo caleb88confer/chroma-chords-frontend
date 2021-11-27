@@ -13,7 +13,9 @@ import { nmToRgb } from "../conversions/nmToRgb";
 
 
 
-function Canvas ({setChord, chord}) {
+function Canvas ({setChord, chord, setLocation}) {
+
+
     // set selected color state
     const [selectedColor, setSelectedColor] = useState({
     color:    "rgb(255,255,255)",
@@ -66,6 +68,7 @@ function Canvas ({setChord, chord}) {
             <section className="colorSelector" >
                 <Route path="/canvas/palette">
                 <ColorPalette
+                setLocation={setLocation}
                 ChromaticScale={ChromaticScale} 
                 handleSelect={handleSelect}/>
                 <div className="selectedColor"

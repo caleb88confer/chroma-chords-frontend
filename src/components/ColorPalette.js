@@ -1,6 +1,8 @@
+import {useEffect} from "react";
 
 
 function ColorPalette ({handleSelect, ChromaticScale}) {
+
     const notes = ChromaticScale.map((ele, idx) => {
         return (
             <div className="chromaticNotes"

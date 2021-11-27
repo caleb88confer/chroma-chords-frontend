@@ -68,7 +68,7 @@ function Main (props) {
                 />
                 <Route 
                 path="/recform" render={(rp) => (
-                    <RecForm 
+                    <RecForm
                     chord={chord}
                     setChord={setChord}
                     {...rp}
@@ -85,7 +85,8 @@ function Main (props) {
                  )}
                  />
                  <Route>
-                     <About/>
+                     <About
+                     />
                  </Route>
 
 
