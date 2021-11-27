@@ -8,7 +8,7 @@ function About (props) {
         <div className="container">
             <h3 className="aboutSubHeading">Inspiration</h3>
             <p className="aboutParagraph">
-                The idea for Chroma Chords was first sparked from a ted talk by Adam on polyrhythms. In the talk Adam explained how colors are are light waves, and just like sound waves each color has its own frequency. Using a musical idea called octaves (the doubling or halving of a frequency is percieved as the same pitch) we can translate these incredibly was light frequencies down many octaves until they resemble sound frequencies.  
+                The idea for Chroma Chords was first sparked from a ted talk by Adam on polyrhythms. In the talk Adam explained how colors are light waves, and just like sound waves each color has its own frequency. Using a musical idea called octaves (the doubling or halving of a frequency is percieved as the same pitch) we can translate these incredibly was light frequencies down many octaves until they resemble sound frequencies.  
             </p>
             <a href="https://www.youtube.com/watch?v=JiNKlhspdKg">Link to Adam Neely's Ted Talk</a>
         </div>
