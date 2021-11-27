@@ -388,6 +388,12 @@ button {
   align-self: center;
 }
 /* ==================================Rec Form==================================== */
+.rec-form-block {
+  border: 1px solid #3e3e3e;
+  position: relative;
+  z-index: 3;
+  background-color: #3e3e3e;
+}
 .recForm {
   color: white;
   text-align: center;

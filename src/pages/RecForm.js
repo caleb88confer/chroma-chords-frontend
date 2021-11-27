@@ -31,6 +31,7 @@ function RecForm ({chord, setChord, history}) {
         
     }
     return (
+        <div className="rec-form-block">
         <div className="container">
             <h1 className="aboutTitle">RecForm</h1>
             <hr></hr>
@@ -58,6 +59,7 @@ function RecForm ({chord, setChord, history}) {
 
                 
             </form>
+        </div>
         </div>
     )
 }
